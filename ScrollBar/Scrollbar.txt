@@ -1,0 +1,79 @@
+/* --- Scroll principal del contenido --- */
+.scrollApp {
+  height: 100vh;             /* Ocupa toda la altura visible */
+  overflow-y: auto;          /* Scroll vertical solo en el contenido */
+  overflow-x: hidden;        /* Evita scroll horizontal */
+  scroll-behavior: smooth;   /* Desplazamiento suave */
+}
+
+/* --- Personalización del scroll (como ChatGPT) --- */
+.scrollApp::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scrollApp::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #343740, #303739);
+  border-radius: 8px;
+}
+
+.scrollApp::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #123fe3, #3FBCE5);
+}
+
+.scrollApp::-webkit-scrollbar-track {
+  background: #F4F6F8;
+  border-radius: 8px;
+}
+
+/* === Sidebar principal (menú azul) === */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh; /* ocupa toda la altura */
+  overflow-y: auto;
+  color: white;
+  z-index: 1000;
+}
+
+/* === Contenedor del contenido principal === */
+.scrollApp {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #f9f9f9;
+  border-left: 8px solid #e5e5e5; /* separador gris más claro */
+  scrollbar-gutter: stable; /* da espacio entre scrollbar y borde */
+}
+
+/* === Scrollbar personalizado para el área de contenido === */
+.scrollApp::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scrollApp::-webkit-scrollbar-thumb {
+  background-color: #c2c2c2;
+  border-radius: 8px;
+}
+
+.scrollApp::-webkit-scrollbar-thumb:hover {
+  background-color: #a0a0a0;
+}
+
+.scrollApp::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+/* === Ajuste de padding del contenido para pantallas grandes === */
+@media (min-width: 992px) {
+  .scrollApp {
+    padding-right: 20px;
+  }
+}
+
+/*Evitar “scroll vacío” en pantallas grandes*/
+.scrollApp {
+  max-height: 100vh;
+  overflow-y: auto;
+}
