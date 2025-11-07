@@ -1,0 +1,22 @@
+  if (opc === "captura" && $("#tableCaptura").length) {
+                  const table = $("#tableCaptura").DataTable({
+                    ...commonConfig,
+                    language: {
+                      url: "https://cdn.datatables.net/plug-ins/1.13.5/i18n/es-ES.json",
+                      emptyTable:
+                        "No hay registros por el momento de captura para Mostrar",
+                    },
+                    responsive: true,
+                    pageLength: 25,
+                    columnDefs: [{ orderable: false, targets: [10] }],
+                  });
+
+                  // Búsqueda individual por columna
+                  $("#tableCaptura thead tr:eq(1) th").each(function (i) {
+                    $("input", this).on("keyup change", function () {
+                      if (table.column(i).search() !== this.value) {
+                        table.column(i).search(this.value).draw();
+                      }
+                    });
+                  });
+                }

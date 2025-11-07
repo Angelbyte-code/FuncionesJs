@@ -1,0 +1,18 @@
+<!-- jQuery  -->
+<script src="../DataTables/js/jquery-3.7.1.js"></script>
+
+<!-- jQuery UI  -->
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="../DataTables/js/bootstrap.bundle.min.js"></script>
+
+<!-- DataTables núcleo -->
+<script src="../DataTables/js/dataTables.js"></script>
+
+<!-- DataTables integración con Bootstrap 5 -->
+<script src="../DataTables/js/dataTables.bootstrap5.js"></script>
+
+<!-- DataTables extensión Responsive -->
+<script src="../DataTables/js/dataTables.responsive.js"></script>
+<script src="../DataTables/js/responsive.bootstrap5.js"></script>
