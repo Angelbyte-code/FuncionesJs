@@ -6,7 +6,7 @@
   scroll-behavior: smooth;   /* Desplazamiento suave */
 }
 
-/* --- Personalización del scroll (como ChatGPT) --- */
+/* --- Personalización del scroll--- */
 .scrollApp::-webkit-scrollbar {
   width: 10px;
 }
