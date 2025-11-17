@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Link De estilos CSS-->
+    <link
+      href="bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="app.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button
+      type="button"
+      class="btn btn-primary"
+      onclick="buscarArchivoImportado()"
+      id="btnBuscar"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-table"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"
+        />
+      </svg>
+      Importar Archivo
+    </button>
+
+    <!-- MODAL IMPORTAR ARCHIVO -->
+<div class="modal fade" id="modalImportar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Importar archivo Excel</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body text-center">
+
+                <!-- Zona de carga -->
+                <div id="dropZone" class="upload-zone">
+                    <div id="zonaCarga">
+                        <i class="fas fa-cloud-upload-alt" style="font-size: 40px; color:#0d6efd;"></i>
+                        <p class="mt-3 mb-1">Arrastra un archivo aquí</p>
+                        <p class="text-muted">o</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                        Examinar archivo
+                    </button>
+
+                </div>
+                <input type="file" id="fileInput" accept=".xls,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" style="display: none;">
+
+                <!-- Lista de archivos -->
+                <div id="fileList" class="mt-4"></div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button class="btn btn-success" id="btnUploadAll">
+                    Subir archivo
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Modal de Error -->
+<div class="modal fade" id="modalError" tabindex="-1" aria-labelledby="modalErrorLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-danger">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="modalErrorLabel">Error</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body text-center">
+                <i class="fas fa-exclamation-triangle text-danger fa-3x mb-3"></i>
+                <p id="mensajeError" class="mb-0">Ocurrió un error al cargar los datos.</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL VISTA PREVIA -->
+<div class="modal fade" id="modalPreview" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Vista previa del archivo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Aquí se va a insertar la tabla de SheetJS -->
+        <div id="previewContent" class="table-responsive"></div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <!--Scrip de bootstrap-->
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="Sheetjs/xlsx.full.min.js"></script>
+    <script src="app.js"></script>
+
+  </body>
+</html>
